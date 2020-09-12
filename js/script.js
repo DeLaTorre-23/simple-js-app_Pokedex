@@ -9,3 +9,7 @@ let pokemonList = [
   {name: 'Wartortle', height: 1, types: ['water']},
   {name: 'Blastoise', height: 1.6, types: ['water']}
 ];
+
+for (let i=0; i< pokemonList.length; i++){
+  document.write(pokemonList[i].name + " is height " + pokemonList[i].height + " metres");
+}
