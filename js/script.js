@@ -10,6 +10,15 @@ let pokemonList = [
   {name: 'Blastoise', height: 1.6, types: ['water']}
 ];
 
+//Print the name and height of the pokemon and print the 'height average' of the pokemon
+
 for (let i=0; i< pokemonList.length; i++){
-  document.write(pokemonList[i].name + " (height: " + pokemonList[i].height + " metres) ");
+  let printPokemon = (pokemonList[i].name + " (height: " + pokemonList[i].height + " metres)");
+  let bigHeight = ' - Wow, that\'s big!';
+
+  if (pokemonList[i].height > 1.7) {
+    document.write("<p>" + printPokemon + bigHeight + "</p>");
+  } else {
+    document.write("<p>" + printPokemon + "</p>");
+  }
 }
