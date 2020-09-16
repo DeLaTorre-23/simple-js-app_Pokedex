@@ -22,13 +22,25 @@ for (let i=0; i< pokemonList.length; i++){
     document.write("<p>" + printPokemonList + "</p>");
   }
 }
+
+//It is the same than the function for above
+ pokemonList.forEach(function(pokemon) {
+   let bigHeight = ' - Wow, that\'s big!';
+   if (pokemon.height > 1.7) {
+     document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + bigHeight + "</p>");
+   } else {
+     document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + "</p>");
+   }
+ });
 */
 
-pokemonList.forEach(function(pokemon) {
+function myLoopPokemonList (pokemon) {
   let bigHeight = ' - Wow, that\'s big!';
   if (pokemon.height > 1.7) {
     document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + bigHeight + "</p>");
   } else {
     document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + "</p>");
   }
-});
+};
+
+pokemonList.forEach(myLoopPokemonList);
