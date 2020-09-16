@@ -1,46 +1,72 @@
-let pokemonList = [
-  {name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison']},
-  {name: 'Ivysaur', height: 1, types: ['grass', 'poison']},
-  {name: 'Venusaur', height: 2, types: ['grass', 'poison']},
-  {name: 'Charmander', height: 0.6, types: ['fire']},
-  {name: 'Charmeleon', height: 1.1, types: ['fire']},
-  {name: 'Charizard', height: 1.7, types: ['fire', 'flying']},
-  {name: 'Squirtle', height: 0.5, types: ['water']},
-  {name: 'Wartortle', height: 1, types: ['water']},
-  {name: 'Blastoise', height: 1.6, types: ['water']}
-];
+// IIFE protecting the repository array of pokemon
+let pokemonRepository = (function () {
+  let pokemonList = [
+    {name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison']},
+    {name: 'Ivysaur', height: 1, types: ['grass', 'poison']},
+    {name: 'Venusaur', height: 2, types: ['grass', 'poison']},
+    {name: 'Charmander', height: 0.6, types: ['fire']},
+    {name: 'Charmeleon', height: 1.1, types: ['fire']},
+    {name: 'Charizard', height: 1.7, types: ['fire', 'flying']},
+    {name: 'Squirtle', height: 0.5, types: ['water']},
+    {name: 'Wartortle', height: 1, types: ['water']},
+    {name: 'Blastoise', height: 1.6, types: ['water']}
+  ];
 
-//Print the name and height of the pokemon and print the 'height average' of the pokemon
-/*
-for (let i=0; i< pokemonList.length; i++){
-  let printPokemonList = (pokemonList[i].name + " (height: " + pokemonList[i].height + " metres)");
-  let bigHeight = ' - Wow, that\'s big!';
-
-  if (pokemonList[i].height > 1.7) {
-    document.write("<p>" + printPokemonList + bigHeight + "</p>");
-  } else {
-    document.write("<p>" + printPokemonList + "</p>");
+  //Add pokemons to the repository if the parametres are okey
+  function add(pokemon) {
+    if (
+      typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'height' in pokemon &&
+      'types' in pokemon
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      document.write('This pokemon isn\'t correct');
+    }
   }
-}
 
-//It is the same than the function for above
- pokemonList.forEach(function(pokemon) {
-   let bigHeight = ' - Wow, that\'s big!';
-   if (pokemon.height > 1.7) {
-     document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + bigHeight + "</p>");
-   } else {
-     document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + "</p>");
-   }
- });
-*/
+  function getAll() {
+    return pokemonList;
+  }
 
-function myLoopPokemonList (pokemon) {
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
+
+// This function write a message how big is the pokemon.
+function SizePokemonList (item) {
   let bigHeight = ' - Wow, that\'s big!';
-  if (pokemon.height > 1.7) {
-    document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + bigHeight + "</p>");
+  if (item.height > 1.7) {
+    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + bigHeight + "</p>");
   } else {
-    document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + " metre.) " + " Type: " + pokemon.types + " " + "</p>");
+    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + "</p>");
   }
 };
 
-pokemonList.forEach(myLoopPokemonList);
+pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});
+pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
+pokemonRepository.getAll().forEach(SizePokemonList);
+
+//**************Why I can not add pokemon if I call them here?***********
+
+
+
+
+
+
+
+/*
+pokemonRepository.getAll().forEach(function (item) {
+  let bigHeight = ' - Wow, that\'s big!';
+  if (item.height > 1.7) {
+    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + bigHeight + "</p>");
+  } else {
+    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + "</p>");
+  }
+});
+
+pokemonRepository.add({ name: 'Pikachu', height: 0.4, types: ['electric']});
+*/
