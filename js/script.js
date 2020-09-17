@@ -49,24 +49,8 @@ function SizePokemonList (item) {
 pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});
 pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
 pokemonRepository.getAll().forEach(SizePokemonList);
+pokemonRepository.add ({ name: 'cullo', height: 0.8, types: ['electric']});
+pokemonRepository.getAll().forEach(SizePokemonList);
 
-//**************Why I can not add pokemon if I call them here?***********
-
-
-
-
-
-
-
-/*
-pokemonRepository.getAll().forEach(function (item) {
-  let bigHeight = ' - Wow, that\'s big!';
-  if (item.height > 1.7) {
-    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + bigHeight + "</p>");
-  } else {
-    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + "</p>");
-  }
-});
-
-pokemonRepository.add({ name: 'Pikachu', height: 0.4, types: ['electric']});
-*/
+//************** 1 - Why I can not add pokemon if I call the "NEXT FUNCTION" after to call the whole list? FUNCTION : (pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});)***********
+//************** 2 - Why If I use the "NEXT FUNCTION" doesn't print the pokemonList and appear instead ""[object,objcet], [object,objcet] (once for each bject of the array) ..."" in the screen? FUNCTION : document.write (pokemonRepository.getAll());***********
