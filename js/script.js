@@ -49,8 +49,6 @@ function SizePokemonList (item) {
 pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});
 pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
 pokemonRepository.getAll().forEach(SizePokemonList);
-pokemonRepository.add ({ name: 'cullo', height: 0.8, types: ['electric']});
-pokemonRepository.getAll().forEach(SizePokemonList);
 
-//************** 1 - Why I can not add pokemon if I call the "NEXT FUNCTION" after to call the whole list? FUNCTION : (pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});)***********
-//************** 2 - Why If I use the "NEXT FUNCTION" doesn't print the pokemonList and appear instead ""[object,objcet], [object,objcet] (once for each bject of the array) ..."" in the screen? FUNCTION : document.write (pokemonRepository.getAll());***********
+
+//************** 1 - Why If I use the "NEXT FUNCTION" doesn't print the pokemonList and appear instead ""[object,objcet], [object,objcet] (once for each bject of the array) ..."" in the screen? FUNCTION : document.write (pokemonRepository.getAll());***********
