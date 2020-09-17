@@ -1,9 +1,18 @@
+/****** GENERALS STYLES ******/
 * {
   text-decoration: none;
-  margin: 0px auto;
-  padding: 0px auto;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
+
+.clearfix{
+  float: none;
+  clear: both;
+}
+
+
+/******  BODY ******/
 
 body {
   background-color: #ccc;
@@ -15,10 +24,7 @@ body {
   color: black;
 }
 
-.clearfix{
-  float: none;
-  clear: both;
-}
+/******  HEADER ******/
 
 .main-header {
   background: gray;
@@ -48,11 +54,31 @@ h1 {
   font-weight: 700;
 }
 
-p {
-  margin-left: 30px;
-  font-weight: bold;
+/******  DROP-DOWN POKEMON LIST ******/
+
+.button-list {
+  margin-left: 15px;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #fff;
+  border: 3px solid gray;
+  box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.2);
+  min-width: 350px;
+  cursor: pointer;
+
+}
+
+.button-list:hover {
+  border: 3px solid gray;
+  background-color: white;
+  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-list:active {
+  border: 3px solid gray;
+  box-shadow: inset 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 #pokemon-list {
-  display: none;
+
 }
