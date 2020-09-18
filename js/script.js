@@ -30,14 +30,20 @@ let pokemonRepository = (function () {
     return repository;
   }
 
+  //Add pokemons to the HTML file building a 'li' & 'button'
   function addListPokemon(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
     let listOfPokemon = document.createElement('li');
     let button = document.createElement('button');
+    pokemonList.appendChild(listOfPokemon);
+    listOfPokemon.appendChild(button);
     button.innerText = pokemon.name;
     button.classList.add('button-list');
-    listOfPokemon.appendChild(button);
-    pokemonList.appendChild(listOfPokemon);
+
+    //Console.log the pokemon that I kicked click on the list
+    button.addEventListener('click', function (event) {
+      console.log(pokemon);
+    });
   }
 
   return {
@@ -53,43 +59,22 @@ pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
 
 console.log(pokemonRepository.getAll());
 
-// This function write a message how big is the pokemon.
-
+// This function create the element <li> & <button> inside of the HTML file.
 pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListPokemon(pokemon);
 });
 
 
+// function SizePokemonList (item) {
+//   let bigHeight = ' - Wow, that\'s big!';
+//   if (item.height > 1.7) {
+//     document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + bigHeight + "</p>");
+//   } else {
+//     document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + "</p>");
+//   }
+// };
 //
-// let pokemonList = document.querySelector('#pokemon-list');
-// let listItem = document.createElement('li');
-// listItem.innerText = '';
-// pokemonList.appendChild(listItem);
-//
-//
-// let listItem = document.querySelector('#pokemon-list > *');
-// let buttonList = document.createElement('button');
-// buttonList.innerText = pokemonRepository.name;
-// listItem.appendChild(buttonList);
-//
-// element.classList.add('button-list');
-
-
-
-function SizePokemonList (item) {
-  let bigHeight = ' - Wow, that\'s big!';
-  if (item.height > 1.7) {
-    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + bigHeight + "</p>");
-  } else {
-    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + "</p>");
-  }
-
-};
-
-pokemonRepository.getAll().forEach(SizePokemonList);
-
-
-
+// pokemonRepository.getAll().forEach(SizePokemonList);
 
 
 /*
