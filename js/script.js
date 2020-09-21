@@ -1,33 +1,24 @@
 // IIFE protecting the repository array of pokemon
 let pokemonRepository = (function () {
-  let repository = [
-    {name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison']},
-    {name: 'Ivysaur', height: 1, types: ['grass', 'poison']},
-    {name: 'Venusaur', height: 2, types: ['grass', 'poison']},
-    {name: 'Charmander', height: 0.6, types: ['fire']},
-    {name: 'Charmeleon', height: 1.1, types: ['fire']},
-    {name: 'Charizard', height: 1.7, types: ['fire', 'flying']},
-    {name: 'Squirtle', height: 0.5, types: ['water']},
-    {name: 'Wartortle', height: 1, types: ['water']},
-    {name: 'Blastoise', height: 1.6, types: ['water']}
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //Add pokemons to the repository if the parametres are okey
   function add(pokemon) {
     if (
       typeof pokemon === 'object' &&
-      'name' in pokemon &&
-      'height' in pokemon &&
-      'types' in pokemon
+      'name' in pokemon
+      //&&
+      //'detailsUrl' in pokemon
     ) {
-      repository.push(pokemon);
+      pokemonList.push(pokemon);
     } else {
       document.write('This pokemon is not correct');
     }
   }
 
   function getAll() {
-    return repository;
+    return pokemonList;
   }
 
   //Add pokemons to the HTML file building a 'li' & 'button'
@@ -42,6 +33,46 @@ let pokemonRepository = (function () {
 
     //Console.log the pokemon that I kicked click on the list
     button.addEventListener('click', function (event) {
+      showDetails(pokemon);
+    });
+  }
+
+  // Importing List of Pokemon from API
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+        console.log(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
+
+  // Import the List of details about Pokemon List from API
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  // Print the List of details about Pokemon List from API
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
       console.log(pokemon);
     });
   }
@@ -49,46 +80,22 @@ let pokemonRepository = (function () {
   return {
     add: add,
     getAll: getAll,
-    addListPokemon: addListPokemon
+    addListPokemon: addListPokemon,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();
 
 // New Pokemon added to the Repository
-pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});
-pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
+//pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});
+//pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
 
 console.log(pokemonRepository.getAll());
 
 // This function create the element <li> & <button> inside of the HTML file.
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListPokemon(pokemon);
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListPokemon(pokemon);
+  });
 });
-
-
-// function SizePokemonList (item) {
-//   let bigHeight = ' - Wow, that\'s big!';
-//   if (item.height > 1.7) {
-//     document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + bigHeight + "</p>");
-//   } else {
-//     document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + "</p>");
-//   }
-// };
-//
-// pokemonRepository.getAll().forEach(SizePokemonList);
-
-
-/*
-// This function write a message how big is the pokemon.
-function SizePokemonList (item) {
-  let bigHeight = ' - Wow, that\'s big!';
-  if (item.height > 1.7) {
-    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + bigHeight + "</p>");
-  } else {
-    document.write("<p>" + item.name + " (Height: " + item.height + " metre.) " + " Type: " + item.types + " " + "</p>");
-  }
-};
-
-pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});
-pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
-pokemonRepository.getAll().forEach(SizePokemonList);
-*/
