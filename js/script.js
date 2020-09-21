@@ -93,7 +93,7 @@ let pokemonRepository = (function () {
 
 console.log(pokemonRepository.getAll());
 
-// This function create the element <li> & <button> inside of the HTML file.
+// This function create the element <li> & <button> inside of the HTML file to interact with.
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListPokemon(pokemon);
