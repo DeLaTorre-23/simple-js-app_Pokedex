@@ -81,9 +81,7 @@ let pokemonRepository = (function () {
     add: add,
     getAll: getAll,
     addListPokemon: addListPokemon,
-    loadList: loadList,
-    loadDetails: loadDetails,
-    showDetails: showDetails
+    loadList: loadList
   };
 })();
 
