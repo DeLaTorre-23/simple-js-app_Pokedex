@@ -26,8 +26,10 @@ let pokemonRepository = (function () {
     let pokemonList = document.querySelector('.pokemon-list');
     let listOfPokemon = document.createElement('li');
     let button = document.createElement('button');
+
     pokemonList.appendChild(listOfPokemon);
     listOfPokemon.appendChild(button);
+
     button.innerText = pokemon.name;
     button.classList.add('button-list');
 
@@ -61,6 +63,7 @@ let pokemonRepository = (function () {
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
+
       // Now we add the details to the item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height;
