@@ -4,6 +4,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  text-align: center;
 }
 
 .clearfix{
@@ -14,7 +15,7 @@
 
 /******  BODY ******/
 
-body {
+html, body {
   background-color: #ccc;
   font-family: 'BioRhyme', sans-serif, helvetica;
   font-weight: 500;
@@ -100,10 +101,10 @@ h1 {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
-  top: 0px;
-  left: 0px;
-  width: auto;
-  height: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
   overflow: auto;
@@ -118,6 +119,7 @@ h1 {
   box-sizing: border-box;
   background: #fff;
   padding: 15px;
+  margin-top: 20%;
   width: 100%;
   max-width: 700px;
   text-align: left;
@@ -127,8 +129,6 @@ h1 {
   float: right;
   -webkit-appearance: none;
   border: 0;
-  width: auto;
-  height: auto;
   background: none;
   /* background-image: url(img/close-icon.png); */
   color: #777;
@@ -151,3 +151,43 @@ h1 {
   /* CSS for modal container - add your own desired CSS styles here */
   display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function addListPokemon(pokemon) {
+  let pokemonList = document.querySelector('.pokemon-list');
+  let listOfPokemon = document.createElement('li');
+  let button = document.createElement('button');
+
+  pokemonList.appendChild(listOfPokemon);
+  listOfPokemon.appendChild(button);
+
+  button.innerText = pokemon.name;
+  button.classList.add('button-list');
+
+  //Console.log the pokemon that I kicked click on the list
+  button.addEventListener('click', function (event) {
+    showDetails(pokemon);
+  });
+}
+
+
+item.imageUrl = details.sprites.front_default;
+item.height = details.height;
+item.types = details.types;
