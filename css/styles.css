@@ -12,7 +12,6 @@
   clear: both;
 }
 
-
 /******  BODY ******/
 
 html, body {
@@ -29,48 +28,41 @@ html, body {
 
 .main-header {
   background: gray;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 110px;
   width: 100%;
   padding: 10px;
-  text-align: left;
+  margin-bottom: 15px;
 }
 
 .main-header a img {
-  display: block;
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
   padding: 10px;
-  float: left;
 }
 
 .main-header h1{
-  float: left;
   margin-left: 20px;
-}
-
-h1 {
   font-family: 'BioRhyme', sans-serif, helvetica;
-  font-size: 35px;
+  font-size: 45px;
   font-weight: 700;
 }
 
 /******  DROP-DOWN POKEMON LIST ******/
 
-/*
-<div class="main-wrap">
-  <div class="pokedex-drop-down">
-    <ul class="pokemon-list"></ul>
-  </div>
-*/
+.pokedex-drop-down {
+  margin-bottom: 23px;
+}
 
 .button-list {
-  margin: 5px 23px;
+  margin: 5px 0px;
   padding: 10px;
   display: inline-block;
-  min-width: 350px;
+  min-width: 30%;
   min-height: 50px;
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
   text-decoration: none;
   letter-spacing: 1.6px;
@@ -119,10 +111,11 @@ h1 {
   box-sizing: border-box;
   background: #fff;
   padding: 15px;
-  margin-top: 20%;
+  margin-top: 10%;
   width: 100%;
   max-width: 700px;
-  text-align: left;
+  text-align: center;
+  overflow: hidden;
 }
 
 .modal-close {
@@ -130,17 +123,33 @@ h1 {
   -webkit-appearance: none;
   border: 0;
   background: none;
-  /* background-image: url(img/close-icon.png); */
   color: #777;
   text-decoration: underline;
 }
 
 .modal h1 {
   margin-top: 0;
+  margin-left: 8%;
+  text-align: center;
+  color: Black;
+    font-size: 40px;
+}
+
+.modal h1:first-letter {
+  text-transform: uppercase;
+
 }
 
 .modal p {
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-size: 23px;
+}
+
+.modal > img {
+  text-align: center;
+  width: 250px;
+  height: 250px;
 }
 
 #modal-container {
@@ -150,44 +159,40 @@ h1 {
 #modal-container.is-visible {
   /* CSS for modal container - add your own desired CSS styles here */
   display: block;
+  font-size: 16px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function addListPokemon(pokemon) {
-  let pokemonList = document.querySelector('.pokemon-list');
-  let listOfPokemon = document.createElement('li');
-  let button = document.createElement('button');
-
-  pokemonList.appendChild(listOfPokemon);
-  listOfPokemon.appendChild(button);
-
-  button.innerText = pokemon.name;
-  button.classList.add('button-list');
-
-  //Console.log the pokemon that I kicked click on the list
-  button.addEventListener('click', function (event) {
-    showDetails(pokemon);
-  });
+@media (max-width: 625px){
+  .button-list {
+    width: 70%;
+    min-width: inherit;
+  }
 }
 
+@media (max-width: 425px){
+  .button-list {
+    width: 70%;
+    min-width: inherit;
+  }
+}
 
-item.imageUrl = details.sprites.front_default;
-item.height = details.height;
-item.types = details.types;
+@media (max-width: 375px){
+  .button-list {
+    width: 70%;
+    min-width: inherit;
+  }
+
+  .main-header h1 {
+    margin-left: 10px;
+    font-size: 30px;
+  }
+
+  .main-header a img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal h1 {
+    font-size: 28px;
+  }
+}
