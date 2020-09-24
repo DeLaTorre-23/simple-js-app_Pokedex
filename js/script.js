@@ -102,7 +102,17 @@ let pokemonRepository = (function () {
     imageElement.src = item.imageUrl;
 
     // let typesElement = document.createElement('p');
-    // typesElement.innerText = ('Types: ' + item.types);
+    // typesElement.innerText = (JSON.stringify('Types: ' + item.types));
+
+    let typesElement = document.createElement("p");
+    //it is an array you need to loop through it
+    item.types.forEach(function (el, index) {
+      if (item.types.length - 1 == index) {
+        typesElement.textContent += el.type.name;
+      } else {
+        typesElement.textContent += el.type.name + ", ";
+      }
+    });
 
     let heightElement = document.createElement('p');
     heightElement.innerText = ('Height: ' + item.height);
@@ -110,7 +120,7 @@ let pokemonRepository = (function () {
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(imageElement);
-    //modal.appendChild(typesElement);
+    modal.appendChild(typesElement);
     modal.appendChild(heightElement);
     modalContainer.appendChild(modal);
 
