@@ -21,20 +21,48 @@
     </div>
   </header><!-- End of Header -->
 
+  <!-- ########## LIST OF POKEMON ########## -->
   <div class="pokedex-drop-down">
     <ul class="pokemon-list"></ul>
+  </div><!-- End of List Of Pokemon -->
+
+  <!-- <button id='show-modal'>Show modal</button> -->
+  <div id='modal-container'>
+    <div class='modal'>
+      <button class='modal-close'>Close</button>
+      <div id='modal-img'></div>
+      <h1>Modal title</h1>
+      <p>Modal text</p>
+    </div>
   </div>
 
-    <!-- <button id='show-modal'>Show modal</button> -->
-  <div id='modal-container'>
-      <div class='modal'>
-        <button class='modal-close'>Close</button>
-        <div id='modal-img'></div>
-        <h1>Modal title</h1>
-        <p>Modal text</p>
+
+  <!-- ########## MODAL ########## -->
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
-
+  </div>
 
 
   <!-- ########## FOOTER ########## -->
