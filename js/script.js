@@ -31,6 +31,8 @@ let pokemonRepository = (function () {
     listOfPokemon.appendChild(button);
 
     button.innerText = pokemon.name;
+    button.classList.add('btn');
+    button.classList.add('btn-light');
     button.classList.add('button-list');
 
     //Console.log the pokemon that I kicked click on the list
