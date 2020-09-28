@@ -92,17 +92,6 @@ let pokemonRepository = (function () {
     let modal = document.createElement('div');
     modal.classList.add('modal');
 
-    // //Adding the delete button "X":
-    // let crossOutButton = document.createElement("crossOutButton");
-    // crossOutButton.appendChild(document.createTextNode("X"));
-    // li.appendChild(crossOutButton);
-    //
-    // crossOutButton.addEventListener("click", deleteListItem);
-    // //Adding CLASS DELETE (DISPLAY: NONE) from the css:
-    // function deleteListItem(){
-    //   li.classList.add("delete")
-    // }
-
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = ('Close');
