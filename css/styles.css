@@ -90,10 +90,10 @@ body {
 
 /****** MODAL OF POKEMON LIST ******/
 
-#modal-container {
-  /* position: block; */
+/* .modal-container {
+
   padding: 20px;
-  /* box-sizing: border-box; */
+
   top: 0;
   left: 0;
   width: 100%;
@@ -103,10 +103,10 @@ body {
   overflow: auto;
   display: grid;
   text-align: center;
-  /* display: none; */
-}
 
-.modal {
+} */
+
+.modal-content {
   margin: auto;
   display:  inline-block;
   box-sizing: border-box;
@@ -121,14 +121,14 @@ body {
   background-repeat: repeat;
 }
 
-.modal-close {
+/* .modal-close {
   float: right;
   -webkit-appearance: none;
   border: 0;
   background: none;
   color: #777;
   text-decoration: underline;
-}
+} */
 
 .modal h1 {
   margin-top: 0;
