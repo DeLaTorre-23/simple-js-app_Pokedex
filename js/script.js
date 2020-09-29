@@ -67,10 +67,12 @@ let pokemonRepository = (function () {
     }).then(function (details) {
 
       // Now we add the details to the item
+      item.name = details.name;
       item.imageUrl = details.sprites.other.dream_world.front_default;
       item.height = details.height;
       item.weight = details.weight;
       item.types = details.types;
+      item.abilities = details.abilities;
     }).catch(function (e) {
       console.error(e);
     });
@@ -87,8 +89,8 @@ let pokemonRepository = (function () {
   let modalContainer = document.querySelector('#modal-container');
   function showModal(item) {
     let modalBody = $('.modal-body');
-    let modalTitle = $('.modal-title');
     let modalHeader = $('.modal-header');
+    let modalTitle = $('.modal-title');
     // Implementing modal Container
     let modalContainer = $('#modal-container');
 
@@ -120,7 +122,15 @@ let pokemonRepository = (function () {
     });
 
     //creating element for abilities in modal content
-    let abilitiesElement = $("<p>" + "Abilities : " + item.abilities + "</p>");
+    let abilitiesElement = document.createElement("p");
+    item.abilities.forEach(function (el, index) {
+      if (item.abilities.length - 1 == index) {
+        abilitiesElement.textContent += el.ability.name;
+      } else {
+        abilitiesElement.textContent += ("Abilities : " + el.ability.name + ", ");
+      }
+    });
+
 
     modalTitle.append(nameElement);
     modalBody.append(imageElement);
