@@ -55,7 +55,7 @@ body {
   -ms-flex-align: center;
   align-items: center;
   -ms-flex-pack: justify;
-  padding: none;
+  padding: 0;
 }
 
 .main-header a img {
@@ -104,23 +104,11 @@ body {
   box-shadow: inset 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
+.button-list::first-letter {
+  text-transform: uppercase;
+}
+
 /****** MODAL OF POKEMON LIST ******/
-
-/* .modal-container {
-
-  padding: 20px;
-
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  overflow: auto;
-  display: grid;
-  text-align: center;
-
-} */
 
 .modal-content {
   margin: auto;
@@ -137,30 +125,18 @@ body {
   background-repeat: repeat;
 }
 
-.modal-close {
-  float: right;
-  -webkit-appearance: none;
-  border: 0;
-  background: none;
-  color: #777;
-  text-decoration: underline;
-}
-
 .modal-header {
-  display: felx;
+  display: flex;
   text-align: center;
+  justify-content: center;
 }
 
-.modal h3 {
-  display: flex;
-  margin-top: 0;
-  margin-left: 8%;
-  text-align: center;
+.modal-header h3 {
   color: Black;
   font-size: 40px;
 }
 
-.modal h3:first-letter {
+.modal-header > h3:first-letter {
   text-transform: uppercase;
 }
 
@@ -174,6 +150,19 @@ body {
   text-align: center;
   width: 250px;
   height: 250px;
+}
+
+/* .close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #777;
+  text-decoration: underline;
+} */
+
+.modal-footer {
+justify-content: center;
 }
 
 /****** MEDIA QUERIES ******/
@@ -195,17 +184,27 @@ body {
 @media (max-width: 375px){
   .button-list {
     width: 70%;
+    font-size: 22px;
     min-width: inherit;
   }
 
   .main-header h1 {
     margin-left: 10px;
-    font-size: 30px;
+    font-size: 35px;
+    margin: 0;
   }
 
-  .main-header a img {
-    width: 100px;
-    height: 100px;
+  .modal-header h3 {
+    font-size: 32px;
+  }
+
+  .modal-img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .modal-body p {
+    font-size: 18px;
   }
 
   .modal h1 {

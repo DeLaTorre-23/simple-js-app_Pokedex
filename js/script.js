@@ -95,13 +95,14 @@ let pokemonRepository = (function () {
     let modalTitle = $('.modal-title');
     // Implementing modal Container
     let modalContainer = $('#modal-container');
+    let btnClose = $('#btnClose');
 
     modalHeader.empty();
     modalTitle.empty();
     modalBody.empty();
 
     //creating X button for close the modal Content
-    
+
     //creating element for name in modal textContent
     let nameElement = $("<h3>" + item.name + "</h3>");
 
@@ -135,13 +136,14 @@ let pokemonRepository = (function () {
       }
     });
 
-    modalHeader.append(modalTitle);
-    modalTitle.append(nameElement);
+    // modalHeader.append(modalTitle);
+    modalHeader.append(nameElement);
     modalBody.append(imageElement);
     modalBody.append(typesElement);
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(abilitiesElement);
+    modalHeader.append(btnClose);
   }
 
   //adding new button to the Pokemonlist
