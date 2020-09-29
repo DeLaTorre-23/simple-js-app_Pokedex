@@ -3,7 +3,6 @@
   text-decoration: none;
   margin: 0px;
   padding: 0px;
-  /* box-sizing: border-box; */
   text-align: center;
 }
 
@@ -26,18 +25,37 @@ body {
   background-repeat: repeat; */
 }
 
+.main-wrap {
+  margin-top: 130px;
+}
+
 /******  HEADER ******/
 
 .main-header {
   background: rgba(234, 47,	48, 1);
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 110px;
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   box-shadow: 0px 0px 4px 5px rgba(234, 47,	48, 0.8), 0px 0px 5px 5px rgba(234, 47,	48, 0.8);;
+}
+
+.main-header a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  display: -ms-flexbox;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  padding: none;
 }
 
 .main-header a img {
@@ -47,7 +65,6 @@ body {
 }
 
 .main-header h1{
-  margin-left: 20px;
   font-family: 'BioRhyme', sans-serif, helvetica;
   font-size: 45px;
   font-weight: 700;
@@ -129,7 +146,13 @@ body {
   text-decoration: underline;
 }
 
-.modal h1 {
+.modal-header {
+  display: felx;
+  text-align: center;
+}
+
+.modal h3 {
+  display: flex;
   margin-top: 0;
   margin-left: 8%;
   text-align: center;
@@ -137,9 +160,8 @@ body {
   font-size: 40px;
 }
 
-.modal h1:first-letter {
+.modal h3:first-letter {
   text-transform: uppercase;
-
 }
 
 .modal p {
