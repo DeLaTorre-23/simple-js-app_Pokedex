@@ -100,6 +100,8 @@ let pokemonRepository = (function () {
     modalTitle.empty();
     modalBody.empty();
 
+    //creating X button for close the modal Content
+    
     //creating element for name in modal textContent
     let nameElement = $("<h3>" + item.name + "</h3>");
 
