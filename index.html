@@ -13,27 +13,19 @@
 <body>
   <!-- ########## HEADER ########## -->
   <header>
+
     <!-- ##### NavBar ##### -->
-    <div class="pos-f-t">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h5 class="text-white h4">Collapsed content</h5>
-          <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
+    <nav class="nav fixed-top main-header">
+      <div class="wrap-header col-11">
+        <a class="logo-link" href="https://pokeapi.co/" target="_blank">
+          <img src="img/pokeball.png" alt="Pokeball logo">
+        </a>
+        <h1>Pokédex</h1>
       </div>
-      <!-- ##### NavBar ##### -->
-      <nav class="nav fixed-top main-header">
-        <div class="wrap-header col-11">
-          <a class="navbar logo-link" href="https://pokeapi.co/" target="_blank">
-            <img src="img/pokeball.png" alt="Pokeball logo">
-          </a>
-          <h1>Pokédex</h1>
-        </div>
-        <button class="navbar-toggler col-1" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-         <img src="../img/menu-icon.png" alt="">
-       </button>
-      </nav>
-    </div><!-- End of Navbar -->
+      <!-- <button class="navbar-toggler col-1" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+       <img src="../img/menu-icon.png" alt="">
+     </button> -->
+    </nav><!-- End of Navbar -->
   </header><!-- End of Header -->
 
   <div class="main-wrap">
@@ -44,20 +36,12 @@
     </div><!-- End of Pokemon List -->
 
     <!-- ##### Modal Container ##### -->
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary button-list" data-toggle="modal" data-target="#exampleModal">
-      Launch Pokemon List
-    </button>
-
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-container" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <!-- <h3 class="modal-title" id="exampleModalLabel"></h3> -->
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <!-- <span aria-hidden="true">X</span> -->
           </div>
           <div class="modal-body"></div>
           <div class="modal-footer">

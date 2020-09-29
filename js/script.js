@@ -1,7 +1,7 @@
 // IIFE protecting the repository array of pokemon
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=6';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //Add pokemons to the repository if the parametres are okey
   function add(pokemon) {
@@ -27,10 +27,8 @@ let pokemonRepository = (function () {
     let listOfPokemon = document.createElement('li');
     let button = document.createElement('button');
 
-
-    pokemonList.appendChild(listOfPokemon);
-    listOfPokemon.appendChild(button);
-
+    pokemonList.append(listOfPokemon);
+    listOfPokemon.append(button);
 
     button.innerText = pokemon.name;
     button.classList.add('btn');
@@ -94,14 +92,12 @@ let pokemonRepository = (function () {
     let modalHeader = $('.modal-header');
     let modalTitle = $('.modal-title');
     // Implementing modal Container
-    let modalContainer = $('#modal-container');
+    let modalContainer = $('#modal-container').modal("show");
     let btnClose = $('#btnClose');
 
     modalHeader.empty();
     modalTitle.empty();
     modalBody.empty();
-
-    //creating X button for close the modal Content
 
     //creating element for name in modal textContent
     let nameElement = $("<h3>" + item.name + "</h3>");
@@ -163,7 +159,7 @@ let pokemonRepository = (function () {
   }
 
   document.querySelector('button').addEventListener('click', () => {
-    showModal(item.name, item.types, item.height, item.weight, item.imageUrl,item.abilities);
+    showModal();
   });
 
   return {
