@@ -27,8 +27,10 @@ let pokemonRepository = (function () {
     let listOfPokemon = document.createElement('li');
     let button = document.createElement('button');
 
+
     pokemonList.appendChild(listOfPokemon);
     listOfPokemon.appendChild(button);
+
 
     button.innerText = pokemon.name;
     button.classList.add('btn');
@@ -138,66 +140,23 @@ let pokemonRepository = (function () {
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(abilitiesElement);
-    // modalBody.append(nameElement);
+  }
 
-
-    // Implementing modal Container
-    // modalContainer.innerHTML = '';
-    //
-    // let modal = document.createElement('div');
-    // modal.classList.add('modal');
-    //
-    // let closeButtonElement = document.createElement('button');
-    // closeButtonElement.classList.add('modal-close');
-    // closeButtonElement.innerText = ('Close');
-    // closeButtonElement.addEventListener('click', hideModal);
-    //
-    // let titleElement = document.createElement('h1');
-    // titleElement.innerText = item.name;
-    //
-    // let imageElement = document.createElement('img');
-    // imageElement.src = item.imageUrl;
-    //
-    //
-    // let typesElement = document.createElement("p");
-    // it is an array you need to loop through it
-    // item.types.forEach(function (el, index) {
-    //   if (item.types.length - 1 == index) {
-    //     typesElement.textContent += el.type.name;
-    //   } else {
-    //     typesElement.textContent += el.type.name + ", ";
-    //   }
-    // });
-    //
-    // let heightElement = document.createElement('p');
-    // heightElement.innerText = ('Height: ' + item.height);
-    //
-    // modal.appendChild(closeButtonElement);
-    // modal.appendChild(titleElement);
-    // modal.appendChild(imageElement);
-    // modal.appendChild(typesElement);
-    // modal.appendChild(heightElement);
-    // modalContainer.appendChild(modal);
-    //
-    // modalContainer.classList.add('is-visible');
+  //adding new button to the Pokemonlist
+  function addButton () {
+    button.forEach(function (el, index) {
+      if (item.length - 1 == index) {
+        button;
+      } else {
+        document.createElement('button');
+        button.classList.add('button-list');
+      }
+    });
   }
 
   function hideModal() {
     modalContainer.classList.remove('is-visible');
   }
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-
-  // modalContainer.addEventListener('click', (e) => {
-  //   let target = e.target;
-  //   if (target === modalContainer) {
-  //     hideModal();
-  //   }
-  // });
 
   document.querySelector('button').addEventListener('click', () => {
     showModal(item.name, item.types, item.height, item.weight, item.imageUrl,item.abilities);
