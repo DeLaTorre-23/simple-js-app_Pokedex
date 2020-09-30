@@ -1,7 +1,7 @@
 // IIFE protecting the repository array of pokemon
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=649';
 
   //Add pokemons to the repository if the parametres are okey
   function add(pokemon) {
