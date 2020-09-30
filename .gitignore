@@ -6,3 +6,4 @@ img/
 /js/promise-polyfill.js
 /js/fetch-polyfill.js
 /css/normalize.css
+.eslintrc
