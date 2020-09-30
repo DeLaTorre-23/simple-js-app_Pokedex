@@ -1,4 +1,4 @@
-// IIFE protecting the repository array of pokemon
+//IIFE protecting the repository array of pokemon
 let pokemonRepository = (function () {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=649';
@@ -36,7 +36,7 @@ let pokemonRepository = (function () {
     button.classList.add('button-list');
 
     //Console.log the pokemon that I kicked click on the list
-    button.addEventListener('click', function (event) {
+    button.addEventListener('click', function () {
       showDetails(pokemon);
     });
   }
@@ -52,7 +52,6 @@ let pokemonRepository = (function () {
           detailsUrl: item.url
         };
         add(pokemon);
-        console.log(pokemon);
       });
     }).catch(function (e) {
       console.error(e);
@@ -80,19 +79,17 @@ let pokemonRepository = (function () {
 
   // Print the List of details about Pokemon List from API
   function showDetails(pokemon) {
-    console.log(pokemon);
     loadDetails(pokemon).then(res => {
       showModal(pokemon);
     });
   }
 
-  let modalContainer = document.querySelector('#modal-container');
   function showModal(item) {
     let modalBody = $('.modal-body');
     let modalHeader = $('.modal-header');
     let modalTitle = $('.modal-title');
     // Implementing modal Container
-    let modalContainer = $('#modal-container').modal("show");
+    let modalContainer = $('#modal-container').modal('show');
     let btnClose = $('#btnClose');
 
     modalHeader.empty();
@@ -100,35 +97,35 @@ let pokemonRepository = (function () {
     modalBody.empty();
 
     //creating element for name in modal textContent
-    let nameElement = $("<h3>" + item.name + "</h3>");
+    let nameElement = $('<h3>' + item.name + '</h3>');
 
     //creating img modal textContent
     let imageElement = $('<img class="modal-img">');
-    imageElement.attr("src", item.imageUrl);
+    imageElement.attr('src', item.imageUrl);
 
     //creating element for height in modal textContent
-    let heightElement = $("<p>" + "Height : " + item.height + "</p>");
+    let heightElement = $('<p>' + 'Height : ' + item.height + '</p>');
 
     //creating element for weight in modal textContent
-    let weightElement = $("<p>" + "Weight : " + item.weight + "</p>");
+    let weightElement = $('<p>' + 'Weight : ' + item.weight + '</p>');
 
     //creating element for type in modal conetnt
-    let typesElement = document.createElement("p");
+    let typesElement = document.createElement('p');
     item.types.forEach(function (el, index) {
       if (item.types.length - 1 == index) {
         typesElement.textContent += el.type.name;
       } else {
-        typesElement.textContent += ("Types : " + el.type.name + ", ");
+        typesElement.textContent += ('Types : ' + el.type.name + ', ');
       }
     });
 
     //creating element for abilities in modal content
-    let abilitiesElement = document.createElement("p");
+    let abilitiesElement = document.createElement('p');
     item.abilities.forEach(function (el, index) {
       if (item.abilities.length - 1 == index) {
         abilitiesElement.textContent += el.ability.name;
       } else {
-        abilitiesElement.textContent += ("Abilities : " + el.ability.name + ", ");
+        abilitiesElement.textContent += ('Abilities : ' + el.ability.name + ', ');
       }
     });
 
@@ -140,22 +137,6 @@ let pokemonRepository = (function () {
     modalBody.append(weightElement);
     modalBody.append(abilitiesElement);
     modalHeader.append(btnClose);
-  }
-
-  //adding new button to the Pokemonlist
-  function addButton () {
-    button.forEach(function (el, index) {
-      if (item.length - 1 == index) {
-        button;
-      } else {
-        document.createElement('button');
-        button.classList.add('button-list');
-      }
-    });
-  }
-
-  function hideModal() {
-    modalContainer.classList.remove('is-visible');
   }
 
   document.querySelector('button').addEventListener('click', () => {

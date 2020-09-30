@@ -23,31 +23,16 @@ body {
 }
 
 /******  HEADER ******/
-.nav {
-  display: -ms-flexbox;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  padding: 0;
-}
 
 .main-header {
-  background: rgba(234, 47,	48, 1);
+  background-color: rgb(234, 47, 48);
+  box-shadow: 0px 0px 4px 5px rgba(234, 47,	48, 0.8), 0px 0px 5px 5px rgba(234, 47,	48, 0.8);
   display: flex;
   justify-content: center;
+  padding: 10px;
   height: 110px;
   width: 100%;
-  padding: 10px;
   margin-bottom: 15px;
-  box-shadow: 0px 0px 4px 5px rgba(234, 47,	48, 0.8), 0px 0px 5px 5px rgba(234, 47,	48, 0.8);;
-}
-
-.main-header a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .wrap-header {
@@ -63,7 +48,6 @@ body {
 }
 
 .wrap-header h1 {
-  display: -webkit-inline-box;
   font-family: 'BioRhyme', sans-serif, helvetica;
   font-size: 45px;
   font-weight: 700;
@@ -78,7 +62,7 @@ body {
   justify-content: flex-end;
 }
 
-/******  DROP-DOWN POKEMON LIST ******/
+/******  POKEMON LIST ******/
 
 .pokedex-drop-down {
   margin-bottom: 23px;
@@ -116,7 +100,7 @@ body {
   text-transform: uppercase;
 }
 
-/****** MODAL OF POKEMON LIST ******/
+/****** MODAL CONTAINER ******/
 
 .modal-content {
   margin: auto;
@@ -170,43 +154,33 @@ body {
 
 /****** MEDIA QUERIES ******/
 
-@media (max-width: 1025px){
-  .button-list {
-    width: 70%;
-    /* margin-left: 50px; */
-    min-width: inherit;
-  }
-}
 
 @media (max-width: 825px){
   .button-list {
-    width: 70%;
-    min-width: inherit;
-  }
-}
-
-@media (max-width: 625px){
-  .button-list {
-    width: 70%;
-    min-width: inherit;
+    width: 50%;
   }
 }
 
 @media (max-width: 425px){
   .button-list {
     width: 70%;
-    min-width: inherit;
   }
 }
 
 @media (max-width: 375px){
+  .main-wrap {
+    margin-top: 100px;
+  }
+  .main-header {
+    height: 85px;
+  }
+
   .button-list {
     width: 70%;
     font-size: 22px;
-    min-width: inherit;
   }
 
-  .nav{
+  .nav {
   justify-content: space-around;
   }
 
