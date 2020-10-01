@@ -94,7 +94,7 @@ let pokemonRepository = (function() {
     let modalHeader = $('.modal-header');
     let modalTitle = $('.modal-title');
     // Implementing modal Container
-    $('#modal-container').modal('show');
+    let modalContainer = $('#modal-container').modal('show');
     let btnClose = $('#btnClose');
 
     modalHeader.empty();
