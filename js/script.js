@@ -1,5 +1,5 @@
 //IIFE protecting the repository array of pokemon
-let pokemonRepository = (function () {
+let pokemonRepository = (function() {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=649';
 
@@ -36,45 +36,50 @@ let pokemonRepository = (function () {
     button.classList.add('button-list');
 
     //Console.log the pokemon that I kicked click on the list
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
       showDetails(pokemon);
     });
   }
 
   // Importing List of Pokemon from API
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (item) {
-        let pokemon = {
-          name: item.name,
-          detailsUrl: item.url
-        };
-        add(pokemon);
+    return fetch(apiUrl)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json) {
+        json.results.forEach(function(item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+        });
+      })
+      .catch(function(e) {
+        console.error(e);
       });
-    }).catch(function (e) {
-      console.error(e);
-    })
   }
 
   // Import the List of details about Pokemon List from API
   function loadDetails(item) {
     let url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-
-      // Now we add the details to the item
-      item.name = details.name;
-      item.imageUrl = details.sprites.other.dream_world.front_default;
-      item.height = details.height;
-      item.weight = details.weight;
-      item.types = details.types;
-      item.abilities = details.abilities;
-    }).catch(function (e) {
-      console.error(e);
-    });
+    return fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(details) {
+        // Now we add the details to the item
+        item.name = details.name;
+        item.imageUrl = details.sprites.other.dream_world.front_default;
+        item.height = details.height;
+        item.weight = details.weight;
+        item.types = details.types;
+        item.abilities = details.abilities;
+      })
+      .catch(function(e) {
+        console.error(e);
+      });
   }
 
   // Print the List of details about Pokemon List from API
@@ -111,21 +116,21 @@ let pokemonRepository = (function () {
 
     //creating element for type in modal conetnt
     let typesElement = document.createElement('p');
-    item.types.forEach(function (el, index) {
+    item.types.forEach(function(el, index) {
       if (item.types.length - 1 == index) {
         typesElement.textContent += el.type.name;
       } else {
-        typesElement.textContent += ('Types : ' + el.type.name + ', ');
+        typesElement.textContent += 'Types : ' + el.type.name + ', ';
       }
     });
 
     //creating element for abilities in modal content
     let abilitiesElement = document.createElement('p');
-    item.abilities.forEach(function (el, index) {
+    item.abilities.forEach(function(el, index) {
       if (item.abilities.length - 1 == index) {
         abilitiesElement.textContent += el.ability.name;
       } else {
-        abilitiesElement.textContent += ('Abilities : ' + el.ability.name + ', ');
+        abilitiesElement.textContent += 'Abilities : ' + el.ability.name + ', ';
       }
     });
 
@@ -157,11 +162,9 @@ let pokemonRepository = (function () {
 //pokemonRepository.add ({ name: 'Picachu', height: 0.4, types: ['electric']});
 //pokemonRepository.add ({ name: 'Raichu', height: 0.8, types: ['electric']});
 
-console.log(pokemonRepository.getAll());
-
 // This function create the element <li> & <button> inside of the HTML file to interact with.
 pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListPokemon(pokemon);
   });
 });
