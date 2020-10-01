@@ -6,14 +6,14 @@ let pokemonRepository = (function() {
   //Add pokemons to the repository if the parametres are okey
   function add(pokemon) {
     if (
-      typeof pokemon === "object" &&
-      "name" in pokemon 
+      typeof pokemon === 'object' &&
+      'name' in pokemon
       //&&
       //'detailsUrl' in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
-      document.write("This pokemon is not correct");
+      document.write('This pokemon is not correct');
     }
   }
 
@@ -23,9 +23,9 @@ let pokemonRepository = (function() {
 
   //Add pokemons to the HTML file building a 'li' & 'button'
   function addListPokemon(pokemon) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let listOfPokemon = document.createElement("li");
-    let button = document.createElement("button");
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listOfPokemon = document.createElement('li');
+    let button = document.createElement('button');
 
     pokemonList.append(listOfPokemon);
     listOfPokemon.append(button);
@@ -36,7 +36,7 @@ let pokemonRepository = (function() {
     button.classList.add('button-list');
 
     //Console.log the pokemon that I kicked click on the list
-    button.addEventListener("click", function() {
+    button.addEventListener('click', function() {
       showDetails(pokemon);
     });
   }
@@ -51,7 +51,7 @@ let pokemonRepository = (function() {
         json.results.forEach(function(item) {
           let pokemon = {
             name: item.name,
-            detailsUrl: item.url
+            detailsUrl: item.url,
           };
           add(pokemon);
         });
@@ -90,47 +90,47 @@ let pokemonRepository = (function() {
   }
 
   function showModal(item) {
-    let modalBody = $(".modal-body");
-    let modalHeader = $(".modal-header");
-    let modalTitle = $(".modal-title");
+    let modalBody = $('.modal-body');
+    let modalHeader = $('.modal-header');
+    let modalTitle = $('.modal-title');
     // Implementing modal Container
-    let modalContainer = $("#modal-container").modal("show");
-    let btnClose = $("#btnClose");
+    let modalContainer = $('#modal-container').modal('show');
+    let btnClose = $('#btnClose');
 
     modalHeader.empty();
     modalTitle.empty();
     modalBody.empty();
 
     //creating element for name in modal textContent
-    let nameElement = $("<h3>" + item.name + "</h3>");
+    let nameElement = $('<h3>' + item.name + '</h3>');
 
     //creating img modal textContent
     let imageElement = $('<img class="modal-img">');
-    imageElement.attr("src", item.imageUrl);
+    imageElement.attr('src', item.imageUrl);
 
     //creating element for height in modal textContent
-    let heightElement = $("<p>" + "Height : " + item.height + "</p>");
+    let heightElement = $('<p>' + 'Height : ' + item.height + '</p>');
 
     //creating element for weight in modal textContent
-    let weightElement = $("<p>" + "Weight : " + item.weight + "</p>");
+    let weightElement = $('<p>' + 'Weight : ' + item.weight + '</p>');
 
     //creating element for type in modal conetnt
-    let typesElement = document.createElement("p");
+    let typesElement = document.createElement('p');
     item.types.forEach(function(el, index) {
       if (item.types.length - 1 == index) {
         typesElement.textContent += el.type.name;
       } else {
-        typesElement.textContent += "Types : " + el.type.name + ", ";
+        typesElement.textContent += 'Types : ' + el.type.name + ', ';
       }
     });
 
     //creating element for abilities in modal content
-    let abilitiesElement = document.createElement("p");
+    let abilitiesElement = document.createElement('p');
     item.abilities.forEach(function(el, index) {
       if (item.abilities.length - 1 == index) {
         abilitiesElement.textContent += el.ability.name;
       } else {
-        abilitiesElement.textContent += "Abilities : " + el.ability.name + ", ";
+        abilitiesElement.textContent += 'Abilities : ' + el.ability.name + ', ';
       }
     });
 
@@ -144,7 +144,7 @@ let pokemonRepository = (function() {
     modalHeader.append(btnClose);
   }
 
-  document.querySelector("button").addEventListener("click", () => {
+  document.querySelector('button').addEventListener('click', () => {
     showModal();
   });
 
@@ -154,7 +154,7 @@ let pokemonRepository = (function() {
     addListPokemon: addListPokemon,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
+    showDetails: showDetails,
   };
 })();
 
