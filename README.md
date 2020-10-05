@@ -1,7 +1,5 @@
 # JavaScript App (Pokédex)
 
-This is a small Pokédex app to display a list of Pokémon.
+This is Pokédex Web App to display details of Pokémon using an API.
 
-To build a small web application with HTML, CSS, and JavaScript that loads data from an
-external API and enables the viewing of data points in detail.
-
+This web application built in HTML, CSS, JavaScript, Jquery and Bootstrap that loads data from an external API ('https://pokeapi.co/') and display a Modal windows enabling the viewing in detail for; Type, Height, weight and Abilities in that Pokémon.
