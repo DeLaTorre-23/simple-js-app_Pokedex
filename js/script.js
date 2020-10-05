@@ -84,7 +84,7 @@ let pokemonRepository = (function() {
 
   // Print the List of details about Pokemon List from API
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(res => {
+    loadDetails(pokemon).then(() => {
       showModal(pokemon);
     });
   }
@@ -93,9 +93,11 @@ let pokemonRepository = (function() {
     let modalBody = $('.modal-body');
     let modalHeader = $('.modal-header');
     let modalTitle = $('.modal-title');
-    // Implementing modal Container
-    let modalContainer = $('#modal-container').modal('show');
     let btnClose = $('#btnClose');
+
+    // Implementing modal Container
+    $('#modal-container').modal('show');
+    // let modalContainer = $('#modal-container').modal('show');
 
     modalHeader.empty();
     modalTitle.empty();
@@ -109,18 +111,18 @@ let pokemonRepository = (function() {
     imageElement.attr('src', item.imageUrl);
 
     //creating element for height in modal textContent
-    let heightElement = $('<p>' + 'Height : ' + item.height + '</p>');
+    let heightElement = $('<p>' + 'Height : ' + item.height + ' dm ' + '</p>');
 
     //creating element for weight in modal textContent
-    let weightElement = $('<p>' + 'Weight : ' + item.weight + '</p>');
+    let weightElement = $('<p>' + 'Weight : ' + item.weight + ' hg ' + '</p>');
 
     //creating element for type in modal conetnt
     let typesElement = document.createElement('p');
     item.types.forEach(function(el, index) {
-      if (item.types.length - 1 == index) {
-        typesElement.textContent += el.type.name;
+      if (item.types.length - 2 == index) {
+        typesElement.textContent += 'Type : ' + el.type.name + ', ';
       } else {
-        typesElement.textContent += 'Types : ' + el.type.name + ', ';
+        typesElement.textContent += 'Type : ' + el.type.name;
       }
     });
 
@@ -128,9 +130,9 @@ let pokemonRepository = (function() {
     let abilitiesElement = document.createElement('p');
     item.abilities.forEach(function(el, index) {
       if (item.abilities.length - 1 == index) {
-        abilitiesElement.textContent += el.ability.name;
+        abilitiesElement.textContent += 'Ability : ' + el.ability.name;
       } else {
-        abilitiesElement.textContent += 'Abilities : ' + el.ability.name + ', ';
+        abilitiesElement.textContent += 'Ability : ' + el.ability.name + ', ';
       }
     });
 
