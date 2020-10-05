@@ -97,7 +97,6 @@ let pokemonRepository = (function() {
 
     // Implementing modal Container
     $('#modal-container').modal('show');
-    // let modalContainer = $('#modal-container').modal('show');
 
     modalHeader.empty();
     modalTitle.empty();
